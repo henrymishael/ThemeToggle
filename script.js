@@ -23,19 +23,16 @@ function setTheme(theme) {
   }
 }
 
-// Check for saved theme preference
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   setTheme(savedTheme);
 }
 
-// Theme toggle event listener
 themeToggle.addEventListener("click", () => {
   const currentTheme = body.getAttribute("data-theme");
   setTheme(currentTheme === "dark" ? "light" : "dark");
 });
 
-// Sidebar toggle for mobile
 function openSidebar() {
   sidebar.classList.add("open");
   overlay.classList.add("active");
@@ -48,12 +45,10 @@ function closeSidebar() {
   document.body.style.overflow = "";
 }
 
-// Event listeners for sidebar
 sidebarToggle.addEventListener("click", openSidebar);
 sidebarClose.addEventListener("click", closeSidebar);
 overlay.addEventListener("click", closeSidebar);
 
-// Close sidebar when window is resized to desktop size
 window.addEventListener("resize", () => {
   if (window.innerWidth > 768) {
     closeSidebar();
